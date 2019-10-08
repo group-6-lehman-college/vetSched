@@ -1,5 +1,2 @@
 #ignore flowcharts
-*.xmml
-*
-!*/
-!*.*
+resources/*
