@@ -32,7 +32,7 @@
                                              
             header("Location: ../frontend/site/dashboard/index.html");
         } else {
-            $_SESSION["error"] = "email/password incorrect"
+            $_SESSION["error"] = "email/password incorrect";
             header("Location: ../frontend/site/login.php");
         }
     } else {
