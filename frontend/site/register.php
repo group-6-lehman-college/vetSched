@@ -90,7 +90,7 @@
 							Already have an account?
 						</span>
 
-						<a class="txt2" href="login.html">
+						<a class="txt2" href="login.php">
 							Log in
 						</a>
 					</div>
