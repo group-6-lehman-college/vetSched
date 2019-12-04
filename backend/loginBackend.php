@@ -29,10 +29,10 @@
             }
             $token = $_SESSION["token"];  
             $_SESSION["status"] = "Active";   
-            echo "as;dlfkj";                                     
-            header("Location: dashboard.php");
+                                             
+            header("Location: ../frontend/site/dashboard/index.html");
         } else {
-            header("Location: login.php");
+            header("Location: ../frontend/site/login.php");
         }
     } else {
         echo "User does not exist</br>";    
