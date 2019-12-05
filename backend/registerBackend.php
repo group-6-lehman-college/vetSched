@@ -18,10 +18,11 @@
     $email      = $_POST["email"];
     $password1  = $_POST["password1"];
     $password2  = $_POST["password2"];
+    $phone      = $_POST["phone_number"];
     $address    = $_POST["address"];
     $city       = $_POST["city"];
-    $zip_code   = $_POST["zip_code"];
     $state      = $_POST["state"];
+    $zip_code   = $_POST["zip_code"];
 
     if(!isset($middle_name)) {
         $middle_name = "";
@@ -29,7 +30,7 @@
 
     //Check if every field was passed by the user
     if(!isset($first_name, $last_name, $email, $password1, $password2,
-            $address1, $city, $zip_code, $state)) {
+            $address, $city, $zip_code, $state)) {
         echo "Missing information</br>";
     }
 
@@ -47,15 +48,17 @@
         $pwd_hash = $hash_array[5];
         echo "length" . strlen($pwd_hash) . "</br>";
     }
-    $fields = "Pet_Owner_FirstName, Pet_Owner_LastName, Pet_Owner_Email, Pet_Owner_Phone"
-    $sql = " INSERT INTO entity (first_name, last_name, email, hash, salt) 
-    VALUES ('$first_name', '$middle_name', '$last_name', '$email', '$pwd_hash', '$salt') ";
+    $fields  = "Pet_Owner_FirstName, Pet_Owner_LastName, Pet_Owner_Email, Pet_Owner_Phone,
+    Pet_Owner_Address, Pet_Owner_City, Pet_Owner_State, Pet_Owner_ZipCode, Pet_Owner_Hash, Pet_Owner_Salt";
+    $values = "'$first_name', '$last_name', '$email', '$phone', '$address', '$city',
+    '$state', '$zip_code', '$pwd_hash', '$salt'";
+
+    $sql = " INSERT INTO pet_owners ($fields) VALUES ($values) ";
 
     //Query the db
     if($db->query($sql) === TRUE) {
         
         $id = $db->insert_id;
-        $db->query(" INSERT INTO user (entity_id, missed_appointment) VALUES ('$id', '0') ");
         session_start();    
 
         //Generate session CSRF token
@@ -63,8 +66,9 @@
             $_SESSION["token"] = bin2hex(random_bytes(32));                         //Set session token
         }
         $token = $_SESSION["token"];  
-        $_SESSION["status"] = "Active";                                              
-        header("Location: dashboard.php");
+        $_SESSION["status"] = "Active";        
+                                             
+        header("Location: ../frontend/site/dashboard/newIndex.html");
 
     } else {
         echo "Error: " . $sql . "<br>" . $db->error;
