@@ -43,7 +43,7 @@
     if($password1 == $password1) {
         $hash = password_hash($password1, PASSWORD_ARGON2ID);
         
-        $hash_array = explode('$', $hash);//b echo print_r($hash_array, true) . "</br>";
+        $hash_array = explode('$', $hash);
         $salt = $hash_array[4];
         $pwd_hash = $hash_array[5];
         echo "length" . strlen($pwd_hash) . "</br>";
