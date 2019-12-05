@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="../../backend/registerBackend.php">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -71,7 +71,7 @@
 						<span class="focus-input100" data-placeholder="Confirm password"></span>
 					</div>
 
-					<div  class="wrap-input100 validate-input" data-validate="Please enter an address">
+					<div  class="wrap-input100 validate-input" data-validate="Please enter a phone number">
 						<input class="input100" type="text" name="phone_number">
 						<span class="focus-input100" data-placeholder="Phone Number"></span>
 					</div>
@@ -87,13 +87,13 @@
 					</div>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="zip_code">
-						<span class="focus-input100" data-placeholder="Zip code"></span>
+						<input class="input100" type="text" name="state">
+						<span class="focus-input100" data-placeholder="State"></span>
 					</div>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="state">
-						<span class="focus-input100" data-placeholder="State"></span>
+						<input class="input100" type="text" name="zip_code">
+						<span class="focus-input100" data-placeholder="Zip code"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
