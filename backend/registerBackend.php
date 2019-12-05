@@ -48,8 +48,10 @@
         $pwd_hash = $hash_array[5];
         echo "length" . strlen($pwd_hash) . "</br>";
     }
+    //Query fields
     $fields  = "Pet_Owner_FirstName, Pet_Owner_LastName, Pet_Owner_Email, Pet_Owner_Phone,
     Pet_Owner_Address, Pet_Owner_City, Pet_Owner_State, Pet_Owner_ZipCode, Pet_Owner_Hash, Pet_Owner_Salt";
+    //Query values
     $values = "'$first_name', '$last_name', '$email', '$phone', '$address', '$city',
     '$state', '$zip_code', '$pwd_hash', '$salt'";
 
