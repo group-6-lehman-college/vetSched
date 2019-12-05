@@ -45,16 +45,11 @@
 						<span class="focus-input100" data-placeholder="First name"></span>
 					</div>
 
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="middle_name">
-						<span class="focus-input100" data-placeholder="Middle name"></span>
-					</div>
-
 					<div class="wrap-input100 validate-input" data-validate="Please enter your last name">
 						<input class="input100" type="text" name="last_name">
 						<span class="focus-input100" data-placeholder="Last name"></span>
 					</div>
-
+					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
@@ -74,6 +69,31 @@
 						</span>
 						<input class="input100" type="password" name="password2">
 						<span class="focus-input100" data-placeholder="Confirm password"></span>
+					</div>
+
+					<div  class="wrap-input100 validate-input" data-validate="Please enter an address">
+						<input class="input100" type="text" name="phone_number">
+						<span class="focus-input100" data-placeholder="Phone Number"></span>
+					</div>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="address">
+						<span class="focus-input100" data-placeholder="Street"></span>
+					</div>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="city">
+						<span class="focus-input100" data-placeholder="City"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="zip_code">
+						<span class="focus-input100" data-placeholder="Zip code"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="state">
+						<span class="focus-input100" data-placeholder="State"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
