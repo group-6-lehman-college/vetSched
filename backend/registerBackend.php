@@ -14,18 +14,22 @@
 
     //Fetch the user information
     $first_name = $_POST["first_name"];
-    $middle_name = $_POST["middle_name"];
     $last_name  = $_POST["last_name"];
     $email      = $_POST["email"];
     $password1  = $_POST["password1"];
     $password2  = $_POST["password2"];
+    $address    = $_POST["address"];
+    $city       = $_POST["city"];
+    $zip_code   = $_POST["zip_code"];
+    $state      = $_POST["state"];
 
     if(!isset($middle_name)) {
         $middle_name = "";
     }
 
     //Check if every field was passed by the user
-    if(!isset($first_name, $last_name, $email, $password1, $password2)) {
+    if(!isset($first_name, $last_name, $email, $password1, $password2,
+            $address1, $city, $zip_code, $state)) {
         echo "Missing information</br>";
     }
 
@@ -43,8 +47,8 @@
         $pwd_hash = $hash_array[5];
         echo "length" . strlen($pwd_hash) . "</br>";
     }
-    
-    $sql = " INSERT INTO entity (first_name, middle_name, last_name, email, hash, salt) 
+    $fields = "Pet_Owner_FirstName, Pet_Owner_LastName, Pet_Owner_Email, Pet_Owner_Phone"
+    $sql = " INSERT INTO entity (first_name, last_name, email, hash, salt) 
     VALUES ('$first_name', '$middle_name', '$last_name', '$email', '$pwd_hash', '$salt') ";
 
     //Query the db
