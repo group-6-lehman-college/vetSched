@@ -1,4 +1,2 @@
-#ignore flowcharts
-resources/*
-
-prototype/*
+#database
+database/*
