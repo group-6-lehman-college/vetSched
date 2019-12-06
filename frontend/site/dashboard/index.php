@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-	<?php require_once("../../../backend/checkSession.php");?>
+	<?php 
+		require_once("../../../backend/checkSession.php");	//Check if the user is logged in
+	?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
