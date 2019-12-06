@@ -11,7 +11,7 @@
         echo "Email format is valid</br>";
     }
 
-    $result = $db->query("SELECT id, hash, salt FROM entity WHERE email = '$email'");       //Get the user's hash and salt
+    $result = $db->query("SELECT Pet_Owner_id, Pet_Owner_hash, Pet_Owner_salt FROM pet_owners WHERE email = '$email'");       //Get the user's hash and salt
 
     //echo var_dump($result);
     //FIXME verify hash and authenticate
@@ -30,17 +30,16 @@
             $token = $_SESSION["token"];  
             $_SESSION["status"] = "Active";   
             
-            //User privilege level
-            $level = 1;
-            $result = $db->query(" SELECT (is_admin, is_veterinarian, is_staff) FROM employee WHERE entity_id='$id' "); 
-            if($result) {
-                $row  = MySQLi_fetch_row($result);   
-            } else {
-                $_SESSION["is_user"] = "true";   
-            }
+            // //User privilege level
+            // $level = 1;
+            // $result = $db->query(" SELECT (is_admin, is_veterinarian, is_staff) FROM employee WHERE entity_id='$id' "); 
+            // if($result) {
+            //     $row  = MySQLi_fetch_row($result);   
+            // } else {
+            //     $_SESSION["is_user"] = "true";   
+            // }
             header("Location: ../frontend/site/dashboard/index.html");
         } else {
-            $_SESSION["error"] = "email/password incorrect"; 
             header("Location: ../frontend/site/login.php");
         }
     } else {
