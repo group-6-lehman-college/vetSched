@@ -19,11 +19,6 @@
     $password1  = $_POST["password1"];
     $password2  = $_POST["password2"];
 
-
-    if(!isset($middle_name)) {
-        $middle_name = "";
-    }
-
     //Check if every field was passed by the user
     if(!isset($first_name, $last_name, $email, $password1, $password2)) {
         echo "Missing information</br>";
