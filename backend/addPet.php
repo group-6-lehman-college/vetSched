@@ -11,7 +11,6 @@
     $first_name = $row[0];
     $last_name = $row[1];
     echo "Logged in as: $first_name $last_name</br>";
-
     
     $name        = $_POST['name'];
     $sex         = $_POST['sex'];
@@ -24,8 +23,8 @@
     $fields = "user_entity_id, name, sex, type, description";
     $values = " '$name', '$sex', '$type', '$description' ";
     $query = " INSERT INTO pet ($fields) VALUES ($values) ";
-    $result = $db->query($query);
 
+    $result = $db->query($query);
     if(!$result) {
         echo "Error adding new pet :(</br>" . $db->error;
     } else {
