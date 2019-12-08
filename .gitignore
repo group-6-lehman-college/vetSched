@@ -1,4 +1,8 @@
 #database
 database/*
 
+#Ignore .htaccess file
+*.htaccess
+
+#TODO file
 TODO
