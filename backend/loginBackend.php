@@ -47,9 +47,7 @@
                 $_SESSION["is_user"] = true;   
             }
             
-            echo var_dump($_SESSION);
-            //header("Location: ../frontend/site/dashboard/index.php");
-            //session_destroy();
+            header("Location: ../frontend/site/dashboard/index.php");
 
         } else {
             header("Location: ../frontend/site/login.php");
