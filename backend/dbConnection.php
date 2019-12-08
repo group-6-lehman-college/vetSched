@@ -6,7 +6,7 @@
         private $servername = "localhost";
         private $username   = "alix";
         private $pwd        = "toor";
-        private $db_name    = "south_bronx_vet";
+        private $db_name    = "site_database";
 
         //Create the connection
         function __construct() {
