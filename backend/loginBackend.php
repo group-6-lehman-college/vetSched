@@ -51,8 +51,12 @@
 
         } else {
             header("Location: ../frontend/site/login.php");
+            echo "<script>alert('Invalid user/password');</script>";
+
         }
     } else {
-        echo "User does not exist</br>";    
+        echo "<script>alert('Invalid user/password');</script>";
+
+        header("Location: ../frontend/site/login.php");  
     }
 ?>
