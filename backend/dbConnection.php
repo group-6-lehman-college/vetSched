@@ -1,7 +1,6 @@
 <?php
     require_once("config.php");
-    echo var_dump($configs);
-    echo "asdfkjhasdlkjf";
+    
     class Database {
         private static $db;
         private $connection;
