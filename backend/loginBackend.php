@@ -11,7 +11,7 @@
         echo "Email format is valid</br>";
     }
 
-    $result = $db->query("SELECT id, hash, salt FROM entity WHERE email = '$email'");       //Get the user's hash and salt
+    $result = $db->query("SELECT id, hash, salt, first_name, last_name FROM entity WHERE email = '$email'");       //Get the user's hash and salt
 
     //echo var_dump($result);
     //FIXME verify hash and authenticate
@@ -28,15 +28,20 @@
                 $_SESSION["token"] = bin2hex(random_bytes(32));                         //Set session token
             }
             $token = $_SESSION["token"];  
-            $_SESSION["id"] = $id;   
+            $_SESSION["id"] = $id;    
+
+            $_SESSION["first_name"] = $row[3];    
+            $_SESSION["last_name"] = $row[4];
 
             //User privilege level
             $result = $db->query(" SELECT facility_id, is_admin, is_veterinarian FROM employee WHERE entity_id = '$id' "); 
-            if($result) {
+            
+            if(mysqli_num_rows($result) > 0) {
                 $row  = MySQLi_fetch_row($result);  
 
-                $session["facility_id"] = $row[0];
-                
+                if($row[0] != null) {
+                    $_SESSION["facility_id"] = $row[0];
+                }
                 if($row[1] == '1') {
                     $_SESSION["is_admin"] = true;
                 } 

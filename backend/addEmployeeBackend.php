@@ -18,10 +18,22 @@
     $email      = $_POST["email"];
     $password1  = $_POST["password1"];
     $password2  = $_POST["password2"];
-
+    $location_id = $_POST["location_id"];
+    $is_admin = 0;
+    $is_veterinarian = 0;
+    echo  $location_id, $is_admin, $is_veterinarian;
     //Check if every field was passed by the user
-    if(!isset($first_name, $last_name, $email, $password1, $password2)) {
+    if(!isset($first_name, $last_name, $email, $password1, $password2,
+     $location_id)) {
         echo "Missing information</br>";
+    }
+
+    if(isset($_POST["is_admin"])) {
+        $is_admin = $_POST["is_admin"];
+    }
+
+    if(isset($_POST["is_veterinarian"])) {
+        $is_veterinarian = $_POST["is_veterinarian"];
     }
 
     //Validate user email
@@ -49,20 +61,15 @@
     if($db->query($sql) === TRUE) {
         
         $id = $db->insert_id;
-        $db->query(" INSERT INTO user VALUES ('$id', '0', '0') ");
-        session_start();    
-
-        //Generate session CSRF token
-        if (empty($_SESSION["token"])) {
-            $_SESSION["token"] = bin2hex(random_bytes(32));                         //Set session token
+        $result = $db->query(" INSERT INTO employee VALUES ('$id', '$location_id', '$is_admin', '$is_veterinarian', 0) ");
+        if($result) {
+            echo "employee added succesfully";
         }
-        $_SESSION["id"] = $id;  
-        $_SESSION["is_user"] = true;    
-        $_SESSION["first_name"] = $first_name;    
-        $_SESSION["last_name"] = $last_name;    
+        session_start();    
+    
 
                                              
-        header("Location: ../frontend/site/dashboard/index.html");
+        header("Location: ../frontend/site/dashboard/addEmployee.php");
 
     } else {
         echo "Error: " . $sql . "<br>" . $db->error;
