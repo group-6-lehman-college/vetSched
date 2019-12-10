@@ -216,7 +216,7 @@
                                         <i class="pe-7s-graph text-success">
                                         </i>
                                     </div>
-                                    <div>Add Employee
+                                    <div>New Appointment
                                         <div class="page-title-subheading">Build whatever layout you need with our Architect framework.
                                         </div>
                                     </div>
@@ -278,30 +278,30 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Grid</h5>
-                                        <form class="" action="../../../backend/addEmployeeBackend.php" method="POST">
+                                        <form class="" action="../../../backend/addAppointmentBackend.php" method="POST">
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Doctor</label>
                                                 <div class="col-sm-10"><select name="doctor" id="exampleSelect" class="form-control">
-                                                <option value="1">James Herriot Veterinary Clinic</option>
-                                                <option value="2">Debbye Turner Veterinary Clinic</option>
-                                                <option value="3">Louis J. Camuti Veterinary Clinic</option>
-                                                <option value="4">Harry Cooper Veterinary Clinic</option>
+                                                <option value="8">Rachel Parker</option>
+                                                <option value="9">Ian Smith</option>
+                                                <option value="10">Alicia Henderson</option>
+                                                <option value="14">John Doe</option>
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Location</label>
                                                 <div class="col-sm-10"><select name="location_id" id="exampleSelect" class="form-control">
                                                 <option value="1">James Herriot Veterinary Clinic</option>
-                                                <option value="2">Debbye Turner Veterinary Clinic</option>
-                                                <option value="3">Louis J. Camuti Veterinary Clinic</option>
-                                                <option value="4">Harry Cooper Veterinary Clinic</option>
+                                                <option value="1">Debbye Turner Veterinary Clinic</option>
+                                                <option value="1">Louis J. Camuti Veterinary Clinic</option>
+                                                <option value="1">Harry Cooper Veterinary Clinic</option>
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Date</label>
                                                 <div class="col-sm-10"><input name="date" type="date"" id="exampleSelect"
-                                                min="2019-12"  max="2020-1"class="form-control"></div>
+                                                value="2019-12-09" min="2019-12"  max="2020-1"class="form-control"></div>
                                             </div>
                                             
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Time</label>
-                                                <div class="col-sm-10"><select name="location_id" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="time" id="exampleSelect" class="form-control">
                                                 <option value="09:00:00">9:00 AM</option>
                                                 <option value="09:30:00">9:30 AM</option>
                                                 <option value="10:00:00">10:00 AM</option>

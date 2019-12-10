@@ -10,6 +10,20 @@
         die("Connection failed: " . $db->connect_error);
     }
 
+    $doctor = $_POST["doctor"];
+    $location_id = $_POST["location_id"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
     
+    $datetime = $date . " " . $time;
 
+    $result = $db->query("INSERT INTO appointment 
+    VALUES (1, $doctor, '$location_id', '$datetime') ");
+
+    if($result) {
+        header("Location: ../frontend/site/dashboard/addAppointment.php");
+
+    } else {
+        echo $db->error;
+    }
 ?>
