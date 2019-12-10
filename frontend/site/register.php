@@ -71,31 +71,6 @@
 						<span class="focus-input100" data-placeholder="Confirm password"></span>
 					</div>
 
-					<div  class="wrap-input100 validate-input" data-validate="Please enter a phone number">
-						<input class="input100" type="text" name="phone_number">
-						<span class="focus-input100" data-placeholder="Phone Number"></span>
-					</div>
-					
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="address">
-						<span class="focus-input100" data-placeholder="Street"></span>
-					</div>
-					
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="city">
-						<span class="focus-input100" data-placeholder="City"></span>
-					</div>
-
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="state">
-						<span class="focus-input100" data-placeholder="State"></span>
-					</div>
-
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="zip_code">
-						<span class="focus-input100" data-placeholder="Zip code"></span>
-					</div>
-
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>

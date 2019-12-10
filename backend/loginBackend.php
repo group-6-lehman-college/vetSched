@@ -11,7 +11,7 @@
         echo "Email format is valid</br>";
     }
 
-    $result = $db->query("SELECT Pet_Owner_id, Pet_Owner_hash, Pet_Owner_salt FROM pet_owners WHERE email = '$email'");       //Get the user's hash and salt
+    $result = $db->query("SELECT id, hash, salt, first_name, last_name FROM entity WHERE email = '$email'");       //Get the user's hash and salt
 
     //echo var_dump($result);
     //FIXME verify hash and authenticate
@@ -28,21 +28,40 @@
                 $_SESSION["token"] = bin2hex(random_bytes(32));                         //Set session token
             }
             $token = $_SESSION["token"];  
-            $_SESSION["status"] = "Active";   
+            $_SESSION["id"] = $id;    
+
+            $_SESSION["first_name"] = $row[3];    
+            $_SESSION["last_name"] = $row[4];
+
+            //User privilege level
+            $result = $db->query(" SELECT facility_id, is_admin, is_veterinarian FROM employee WHERE entity_id = '$id' "); 
             
-            // //User privilege level
-            // $level = 1;
-            // $result = $db->query(" SELECT (is_admin, is_veterinarian, is_staff) FROM employee WHERE entity_id='$id' "); 
-            // if($result) {
-            //     $row  = MySQLi_fetch_row($result);   
-            // } else {
-            //     $_SESSION["is_user"] = "true";   
-            // }
-            header("Location: ../frontend/site/dashboard/index.html");
+            if(mysqli_num_rows($result) > 0) {
+                $row  = MySQLi_fetch_row($result);  
+
+                if($row[0] != null) {
+                    $_SESSION["facility_id"] = $row[0];
+                }
+                if($row[1] == '1') {
+                    $_SESSION["is_admin"] = true;
+                } 
+                if($row[2] == '1') {
+                    $_SESSION["is_veterinarian"] = true;
+                }
+            } else {
+                $_SESSION["is_user"] = true;   
+            }
+            
+            header("Location: ../frontend/site/dashboard/index.php");
+
         } else {
             header("Location: ../frontend/site/login.php");
+            echo "<script>alert('Invalid user/password');</script>";
+
         }
     } else {
-        echo "User does not exist</br>";    
+        echo "<script>alert('Invalid user/password');</script>";
+
+        header("Location: ../frontend/site/login.php");  
     }
 ?>

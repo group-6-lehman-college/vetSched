@@ -1,2 +1,11 @@
 #database
 database/*
+
+#Ignore .htaccess file
+*.htaccess
+
+#Ignore datasets
+data/*
+
+#TODO file
+TODO

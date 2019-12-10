@@ -1,19 +1,16 @@
 <?php
+    require_once("config.php");
+    
     class Database {
         private static $db;
         private $connection;
 
-        private $servername = "localhost";
-        private $username   = "alix";
-        private $pwd        = "toor";
-        private $db_name    = "south_bronx_vet";
-
         //Create the connection
         function __construct() {
-            $this->connection = new MySQLi($this->servername,
-                                           $this->username,
-                                           $this->pwd,
-                                           $this->db_name
+            $this->connection = new MySQLi(DatabaseConfig::$host,
+                                           DatabaseConfig::$username,
+                                           DatabaseConfig::$password,
+                                           DatabaseConfig::$db_name
                                         );
         }
         
